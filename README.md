@@ -15,11 +15,19 @@
 git clone https://github.com/<你的用户名>/<你的仓库>.git
 cd <你的仓库>   # 直接在 main 分支上开发
 
+# 创建虚拟环境
+
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
 # 2. 装依赖
 python -m pip install pytest autopep8
 
 # 3. 启用 AI 会话归档钩子（课程要求，见下方第 3 节）
-python -m pip install 'agent-session-commit[pre-commit]==0.1.3'
+python -m pip install 'agent-session-commit[pre-commit]==0.1.3' -i https://pypi.org/simple
 agent-session-commit install --pre-commit   # 交互选择你的 AI 助手与会话目录
 
 # 4. 跑测试（刚到手：全部 skip，CI 是绿的）

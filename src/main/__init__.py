@@ -145,7 +145,7 @@ class SentryGrid:
     def move_forward(self):
         """TODO(Q3)：朝当前 facing 前进一格，返回执行后的位置；
         碰撞、耗电与断电语义见题面 Q3 规范。"""
-        raise NotImplementedError("Q3 move_forward：题面 Q3·前进、碰撞与熄火")
+        raise NotImplementedError("Q3 move_forward：题面 Q3·前进、碰撞与断电")
 
     def turn_left(self):
         """TODO(Q3)：原地左转 90°，返回新的 Facing（不耗电）。"""
