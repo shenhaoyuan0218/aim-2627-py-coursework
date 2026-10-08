@@ -36,12 +36,31 @@ class Facing(Enum):
 # ---------------------------------------------------------------------------
 def hp_ratio(hp, max_hp):
     """TODO(Q1)：血量百分比，返回 0-100 的 int；计算与边界规则见题面 Q1 规范。"""
-    raise NotImplementedError("Q1 hp_ratio：题面 Q1·血量百分比与精度保障")
+    a=str(int(hp/max_hp*100))
+    if not 0<=a<=100:
+      raise NotImplementedError("Q1 hp_ratio：题面 Q1·血量百分比与精度保障")
+    return a
+  
+  
 
 
 def status_report(name, robot_type, hp, max_hp, battery):
-    """TODO(Q1)：一行自检报告字符串；档位判定与逐字符格式见题面 Q1 规范。"""
-    raise NotImplementedError("Q1 status_report：题面 Q1·电量映射与报告格式")
+    a=hp_ratio(hp,max_hp)
+    b=len(name)
+    c=len(robot_type)
+    if a>10 or b>10:
+      raise NotImplementedError("Q1 status_report：题面 Q1·电量映射与报告格式")
+      return
+    hp_per=hp_ratio(hp,max_hp)
+    c=int(battery)
+    if c>70:
+        level="OK"
+    elif c<20:
+        level="WARNING"
+    else:
+        level="LOW"
+    result=f"{name:<10}|{robot_type:^10}|HP {hp_per:>3}%|BAT {battery:>3}%|{level}"
+    return result
 
 
 # ---------------------------------------------------------------------------
